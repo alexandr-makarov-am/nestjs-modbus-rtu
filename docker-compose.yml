@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  owen-plk-modbus-rtu-api:
+    container_name: owen-plk-modbus-rtu-api
+    restart: always
+    devices:
+      - /dev/ttyUSB0
+    build:
+      context: .
+      target: 'production'
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8081:3000"
